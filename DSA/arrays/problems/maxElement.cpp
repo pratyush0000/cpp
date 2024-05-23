@@ -20,7 +20,7 @@ int main(){
         maxi = max(maxi,array[i]);
     }
 
-    cout<<maxi;
+    cout<<"Max element is: "<<maxi;
     
     return 0;
 }
