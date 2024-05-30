@@ -13,12 +13,6 @@ class node{
 
 };
 
-void insertAtHead(node* &head, int val){
-    node* new_node = new node(val);
-    new_node->next = head;
-    head = new_node;
-}
-
 void insertAtTail(node* &head, int val){
     node* newnode = new node(val);
     if(head==NULL){
@@ -46,13 +40,29 @@ void display(node* head){
     
 }
 
+void deleteAlternateElement(node* &head){
+    node* curr = head;
+    while(curr!=NULL && curr->next!= NULL){
+        node* temp = curr->next;
+        curr->next= curr->next->next;
+        delete temp;
+        curr=curr->next;
+    }
+}
+
+
 int main(){
     node* head = NULL;
-    insertAtHead(head, 2);
+    insertAtTail(head,1);
+    insertAtTail(head,2);
+    insertAtTail(head,3);
+    insertAtTail(head,4);
+    insertAtTail(head,5);
+    insertAtTail(head,6);
+    insertAtTail(head,7);
+    insertAtTail(head,8);
     display(head);
-    insertAtHead(head,8);
-    display(head);
-    insertAtTail(head,9);
+    deleteAlternateElement(head);
     display(head);
 
     return 0;
